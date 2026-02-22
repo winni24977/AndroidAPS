@@ -12,7 +12,7 @@ on:
      branch:
         description: "Select branch"
         required: true
-        default: "master"
+        default: "3.4.0.0+aisf3.2.0"
 
 jobs:
   build:
