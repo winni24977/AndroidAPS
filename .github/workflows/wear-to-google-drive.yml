@@ -12,7 +12,7 @@ on:
      branch:
         description: "Select branch"
         required: true
-        default: "master"
+        default: "3.4.0.0+aisf3.2.0"
 
 jobs:
   build:
@@ -68,7 +68,8 @@ jobs:
           BRANCH=${{ github.event.inputs.branch }}
           echo "BRANCH=$BRANCH" >> $GITHUB_ENV
           original_file="wear/build/outputs/apk/full/release/wear-full-release-unsigned-signed.apk"
-          new_file="wear/build/outputs/apk/full/release/${PROJECT_NAME}-${VERSION}_${BRANCH}-wear-full-release.apk"
+          # new_file="wear/build/outputs/apk/full/release/${PROJECT_NAME}-${VERSION}_${BRANCH}-wear-full-release.apk"
+          new_file="wear/build/outputs/apk/full/release/${PROJECT_NAME}-${VERSION}-wear-full-release.apk"
 
           if [ -f "$original_file" ]; then
             mv "$original_file" "$new_file"
@@ -122,8 +123,10 @@ jobs:
         print(f"Projectname: {PROJECT_NAME}")
         print(f"Version: {VERSION}")
         print(f"Branch: {BRANCH}")
-        FILE_NAME_LOCAL = f"{PROJECT_NAME}-{VERSION}_{BRANCH}-wear-full-release.apk"
-        FILE_NAME_GOOGLE_DRIVE = f"{PROJECT_NAME}-{VERSION}_{BRANCH}-wear-full-release-{RUN_NUMBER}.apk"
+        # FILE_NAME_LOCAL = f"{PROJECT_NAME}-{VERSION}_{BRANCH}-wear-full-release.apk"
+        FILE_NAME_LOCAL = f"{PROJECT_NAME}-{VERSION}-wear-full-release.apk"
+        # FILE_NAME_GOOGLE_DRIVE = f"{PROJECT_NAME}-{VERSION}_{BRANCH}-wear-full-release-{RUN_NUMBER}.apk"
+        FILE_NAME_GOOGLE_DRIVE = f"{PROJECT_NAME}-{VERSION}-wear-full-release-{RUN_NUMBER}.apk"
         FILE_PATH = os.path.join('wear/build/outputs/apk/full/release/', FILE_NAME_LOCAL)
         print(f"Filename: {FILE_NAME_LOCAL}")
         print(f"Filename with path: {FILE_PATH}")
