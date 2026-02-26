@@ -47,18 +47,12 @@ jobs:
             echo "✅ Keystore parameters extracted from KEYSTORE_SET"
           else
             echo "ℹ️ KEYSTORE_SET not provided, using separate secrets."
-            #echo "KEYSTORE_BASE64=${{ secrets.KEYSTORE_BASE64 }}" >> $GITHUB_ENV
-            echo "KEYSTORE_BASE64<<EOF" >> $GITHUB_ENV
-            echo "${{ secrets.KEYSTORE_BASE64 }}" >> $GITHUB_ENV
-            echo "EOF" >> $GITHUB_ENV
+            echo "KEYSTORE_BASE64=${{ secrets.KEYSTORE_BASE64 }}" >> $GITHUB_ENV
             echo "KEYSTORE_PASSWORD=${{ secrets.KEYSTORE_PASSWORD }}" >> $GITHUB_ENV
             echo "KEY_ALIAS=${{ secrets.KEY_ALIAS }}" >> $GITHUB_ENV
             echo "KEY_PASSWORD=${{ secrets.KEY_PASSWORD }}" >> $GITHUB_ENV
           fi
-          #echo "GDRIVE_OAUTH2=${{ secrets.GDRIVE_OAUTH2 }}" >> $GITHUB_ENV
-          echo "GDRIVE_OAUTH2<<EOF" >> $GITHUB_ENV
-          echo "${{ secrets.GDRIVE_OAUTH2 }}" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
+          echo "GDRIVE_OAUTH2=${{ secrets.GDRIVE_OAUTH2 }}" >> $GITHUB_ENV
 
       - name: Check Secrets
         run: |
